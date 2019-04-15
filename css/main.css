@@ -1,9 +1,12 @@
-.modal {
-	display: block;
-}
 .error {
 	color:#ff0000;
 }
 .error-border {
 	border: 1px solid #ff0000;
+}
+.center {
+	text-align: center;
+}
+.center h5 {
+	margin-bottom: 10px;
 }

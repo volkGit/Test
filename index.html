@@ -1,0 +1,104 @@
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-controller="appController">
+	<div class="container">
+	    <div class="page-header">
+	        <h1> Список пользователей </h1>
+	    </div>
+	    <div class="panel">
+	        <div class="form-inline">
+	        	<form name="userForm">
+		            <div class="form-group">
+		                <div class="col-md-8">
+		                    <input name="firstname" class="form-control" required ng-model="firstname" placeholder = "Имя" />
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="col-md-8">
+		                    <input name="lastname"  class="form-control" required ng-model="lastname" placeholder="Фамилия" />
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="col-md-8">
+		                    <input type="date" name="birthdate"  class="form-control" required  ng-model="birthdate" placeholder="Дата рождения" />
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="col-md-8">
+		                    <input type="email" name="email" class="form-control" required pattern="[a-zA-Z_0-9]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  ng-model="email" placeholder="e-mail" />
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="col-md-offset-2 col-md-8">
+		                    <button class="btn btn-primary" ng-click="addUser(firstname, lastname,birthdate,email,userForm)">Добавить</button>
+		                </div>
+		            </div>
+	        	</form>
+	        </div>
+	        <table class="table table-striped">
+	            <thead>
+	                <tr>
+	                    <th>Имя</th>
+	                    <th>Фамилия</th>
+	                    <th>Дата рождения</th>
+	                    <th></th>
+	                    <th></th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr ng-repeat="item in list.items">
+	                    <td>{{item.firstname}}</td>
+	                    <td>{{item.lastname}}</td>
+	                    <td>{{item.birthdate | date:'dd.MM.yyyy'}}</td>
+	                    <td>{{item.email}}</td>
+	                    <td><button class="btn btn-default" title="Редактировать" ng-model="visible"  ng-click="openModal($index)"><span class="glyphicon glyphicon-pencil"></span></button></td>
+	                    <td><button class="btn btn-danger" title="Удалить" ng-click="deleteUser($index)"><span class="glyphicon glyphicon-remove"></span></button></td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+	</div>    
+	<div class="modal" ng-show="visible">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" ng-click="closeModal()"  aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <h4 class="modal-title">Редактировать</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form role="form" name="editForm">
+	          <div class="form-group error" ng-show="errorForm">
+	          	Вы не верно указали данные для сохранения.
+	          </div>	
+			  <div class="form-group">
+			     <input class="form-control" name="edit_firstname" ng-class="{'error-border' : editForm.edit_firstname.$invalid}" required ng-model="edit_firstname" placeholder = "Имя" />
+			  </div>
+			  <div class="form-group">
+			    <input class="form-control" name="edit_lastname" ng-class="{'error-border' : editForm.edit_lastname.$invalid}" required ng-model="edit_lastname" placeholder="Фамилия" />
+			  </div>
+			  <div class="form-group">
+			    <input type="date" class="form-control" name="edit_birthdate" ng-class="{'error-border' : editForm.edit_birthdate.$invalid}" required ng-model="edit_birthdate" placeholder="Дата рождения" />
+			  </div>
+			  <div class="form-group">
+			    <input type="email" name="edit_email" ng-class="{'error-border' : editForm.edit_email.$invalid}" class="form-control" required pattern="[a-zA-Z_0-9]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  ng-model="edit_email" placeholder="e-mail" />
+			  </div>		  
+			</form>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" ng-click="editUser(user,edit_firstname,edit_lastname,edit_birthdate,edit_email,editForm)">Сохранить</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="js/controllers/appController.js"></script>
+</body>
+</html>
+

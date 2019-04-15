@@ -2,10 +2,11 @@ myApp.controller('editUserCtrl', function ($scope, $modalInstance, userId,user,t
 
   $scope.userId = userId;
   $scope.user = user;
+  $scope.title = title;
   $scope.list = dataFactory;
 
-  $scope.saveUser = function (id,firstname,lastname,birthdate,email,editForm) {     
-        if(editForm.$valid){
+  $scope.saveUser = function (id,firstname,lastname,birthdate,email,userForm) {     
+        if(userForm.$valid){
             $scope.errorForm = false; 
             $scope.list.items[id].firstname = firstname;
             $scope.list.items[id].lastname = lastname;

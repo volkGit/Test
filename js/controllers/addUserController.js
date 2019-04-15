@@ -3,8 +3,8 @@ myApp.controller('addUserCtrl', function ($rootScope,$scope, $modalInstance,titl
   $scope.title = title;
   $scope.list = dataFactory;
 
-  $scope.saveUser = function (id,firstname,lastname,birthdate,email,editForm) {     
-        if(editForm.$valid){
+  $scope.saveUser = function (id,firstname,lastname,birthdate,email,userForm) {     
+        if(userForm.$valid){
             $scope.errorForm = false; 
             $scope.list.items.push({ firstname: firstname, lastname: lastname, birthdate: birthdate, email: email  });
             $modalInstance.dismiss('cancel');

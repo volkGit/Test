@@ -8,16 +8,16 @@
 	          	Вы не верно указали данные для сохранения.
 	          </div>	
 			  <div class="form-group">
-			     <input class="form-control" name="firstname" ng-class="{'error-border' : userForm.user.firstname.$invalid}" required ng-model="user.firstname" placeholder = "Имя" />
+			     <input class="form-control" name="firstname" ng-class="{'error-border' : userForm.firstname.$invalid}" required ng-model="user.firstname" placeholder = "Имя" />
 			  </div>
 			  <div class="form-group">
-			    <input class="form-control" name="lastname" ng-class="{'error-border' : userForm.User.lastname.$invalid}" required ng-model="user.lastname" placeholder="Фамилия" />
+			    <input class="form-control" name="lastname" ng-class="{'error-border' : userForm.lastname.$invalid}" required ng-model="user.lastname" placeholder="Фамилия" />
 			  </div>
 			  <div class="form-group">
-			    <input type="date" class="form-control" name="birthdate" ng-class="{'error-border' : userForm.User.birthdate.$invalid}" required ng-model="user.birthdate" placeholder="Дата рождения" />
+			    <input type="date" class="form-control" name="birthdate" ng-class="{'error-border' : userForm.birthdate.$invalid}" required ng-model="user.birthdate" placeholder="Дата рождения" />
 			  </div>
 			  <div class="form-group">
-			    <input type="email" name="email" ng-class="{'error-border' : userForm.user.email.$invalid}" class="form-control" required pattern="[a-zA-Z_0-9]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  ng-model="user.email" placeholder="e-mail" />
+			    <input type="email" name="email" ng-class="{'error-border' : userForm.email.$invalid}" class="form-control" required pattern="[a-zA-Z_0-9]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  ng-model="user.email" placeholder="e-mail" />
 			  </div>		  
 	</form>
 </div>

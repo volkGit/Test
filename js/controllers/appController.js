@@ -45,8 +45,6 @@ myApp.controller("appController",function ($scope,$modal,dataFactory) {
     };
 
     $scope.deleteUser = function (id) {
-       // $scope.list.items.splice(id, 1);
-        //localStorage.setItem("myKey", angular.toJson($scope.list));
 
         var modalInstance = $modal.open({
                 templateUrl: '/angular/views/modal.html',
